@@ -13,6 +13,14 @@
   }
 }
 
+.custom-navbar-toggler .navbar-toggler-icon {
+  color: #f00; /* Altere a cor do ícone do botão de toggle aqui */
+}
+
+body {
+  font-family: 'Lexend', sans-serif; /* Apply Lexend font to the entire application */
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -21,6 +29,33 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.custom-menu-icon {
+  color: white
+}
+
+.navbarStyle {
+  height: 15vh;
+  background-color: #E97A2B;
+  color: white;
+  display: flex;
+  padding-bottom: 0px;
+  align-items: flex-end;
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.title{
+  font-weight: bold;
+  font-size: 26px;
   color: white;
 }
 
