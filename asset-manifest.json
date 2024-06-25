@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Accountability/static/css/main.80884144.css",
+    "main.js": "/Accountability/static/js/main.28ad7868.js",
+    "static/js/453.6283dea9.chunk.js": "/Accountability/static/js/453.6283dea9.chunk.js",
+    "static/media/logo.svg": "/Accountability/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/Accountability/index.html",
+    "main.80884144.css.map": "/Accountability/static/css/main.80884144.css.map",
+    "main.28ad7868.js.map": "/Accountability/static/js/main.28ad7868.js.map",
+    "453.6283dea9.chunk.js.map": "/Accountability/static/js/453.6283dea9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.80884144.css",
+    "static/js/main.28ad7868.js"
+  ]
+}
