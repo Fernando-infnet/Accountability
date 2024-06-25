@@ -1,45 +1,43 @@
 import React, { useState } from 'react';
-import { addSupplier } from '../services/supplierService';
-import { db } from '../firebase'; 
-import { collection, addDoc } from 'firebase/firestore';
+import { addProducts } from '../services/productsService';
 
-const SupplierForm = () => {
+const ProductForm = () => {
   const [name, setName] = useState('');
-  const [address, setAddress] = useState('');
+  const [description, setDescription] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await addSupplier({ name, address });
+    await addProducts({ name, description });
     setName('');
-    setAddress('');
+    setDescription('');
     window.location.reload();
   };
 
   return (
     <div class="gridForm"> 
         <div class="ColoredBox">
-            <h2 className='boxText'>Register Supplier</h2>
+            <h2 className='boxText'>Register Product</h2>
         </div>
         <form onSubmit={handleSubmit}  class="gridPosition">
         <input 
         class="inputStyle"
             type="text" 
-            placeholder="Supplier Name" 
+            placeholder="Product Name" 
             value={name} 
             onChange={(e) => setName(e.target.value)} 
         />
         <input 
         class="inputStyle"
             type="text" 
-            placeholder="Supplier Address" 
-            value={address} 
-            onChange={(e) => setAddress(e.target.value)} 
+            placeholder="Product Descrição" 
+            value={description} 
+            onChange={(e) => setDescription(e.target.value)} 
         />
-        <button class="ColoredBox" type="submit">Add Supplier</button>
+        <button class="ColoredBox" type="submit">Add Product</button>
         </form>
     </div>
 
   );
 };
 
-export default SupplierForm;
+export default ProductForm;

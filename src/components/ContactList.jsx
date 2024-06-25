@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getContacts } from '../services/contactService'; // Assuming this function fetches contacts
-import { getSupplierById } from '../services/supplierService'; // Assuming this function fetches suppliers
+import { getContacts } from '../services/contactService'; 
+import { getSupplierById } from '../services/supplierService'; 
 
 const ContactList = () => {
   const [contacts, setContacts] = useState([]);
@@ -8,7 +8,7 @@ const ContactList = () => {
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const contactsData = await getContacts(); // Assuming getContacts fetches contacts from Firestore
+        const contactsData = await getContacts();
         setContacts(contactsData);
       } catch (error) {
         console.error('Error fetching contacts:', error);
@@ -40,21 +40,22 @@ const ContactList = () => {
 
   return (
     <div>
-      <h2>Contact List</h2>
-      <ul>
-        {contacts.map((contact) => (
+      <h2 class="mt-2">Contact List</h2>
+      {contacts.map((contact) => (
           <li key={contact.id}>
-            <strong>Name:</strong> {contact.name}
-            <br />
-            <strong>Email:</strong> {contact.email}
-            <br />
-            <strong>Phone Number:</strong> {contact.phone_number}
-            <br />
-            <strong>Supplier:</strong> 
-            {supplierNames[contact.supplierId] || 'Loading...'}
+            <div class="card mt-3 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Name: {contact.name}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Email:</strong> {contact.email}</li>
+                    <li class="list-group-item"><strong>Phone Number:</strong> {contact.phone_number}</li>
+                    <li class="list-group-item"><strong>Supplier:</strong> 
+                    {supplierNames[contact.supplierId] || 'Loading...'}</li>
+                </ul>
+            </div>
           </li>
         ))}
-      </ul>
     </div>
   );
 };

@@ -17,8 +17,14 @@ const SupplierList = () => {
     <div>
       {suppliers.map(supplier => (
         <div key={supplier.id}>
-          <h2>Nome Do Fornecedor: {supplier.name}</h2>
-          <p>Endereço Do Fornecedor: {supplier.address}</p>
+          <div class="card mt-3 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Name: {supplier.name}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Endereço:</strong> {supplier.address}</li>
+                </ul>
+            </div>
         </div>
       ))}
     </div>

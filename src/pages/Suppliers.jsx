@@ -8,7 +8,6 @@ const Suppliers = () => {
     <div>
       <NavigationBar />
       <div className="container mt-5">
-        Suppliers
         <SupplierForm></SupplierForm>
         <SupplierList></SupplierList>
       </div>

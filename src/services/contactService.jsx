@@ -18,11 +18,10 @@ export const addContactToSupplier = async (contactData) => {
       supplierId: supplierId
     });
 
-    // Return the ID of the newly added contact
     return docRef.id;
   } catch (error) {
     console.error('Error adding contact:', error);
-    throw error; // Rethrow the error to handle it in the component
+    throw error; 
   }
 };
 
