@@ -21,6 +21,11 @@ body {
   font-family: 'Lexend', sans-serif; /* Apply Lexend font to the entire application */
 }
 
+ul {
+  list-style-type: none;
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -51,6 +56,58 @@ body {
   justify-content: space-around;
   font-size: 20px;
   font-weight: 600;
+}
+
+.links{
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+}
+
+.gridForm{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  text-align: center;
+  gap: 10px;
+  row-gap: 15px;
+  width: 100vw;
+}
+
+.ColoredBox{
+  padding: 10px 12px 12px 10px;
+  text-wrap: nowrap;
+  background-color: #E47862;
+  border-radius: 50px;
+  color: white;
+  grid-column: 4 / 10; 
+  grid-row: 1;
+  border-width: 0px;
+}
+
+.inputStyle{
+  border-radius: 30px;
+  border-color:#E47862;
+  padding: 10px 12px 12px 10px;
+  margin-bottom: 10px;
+  min-width: 100%;
+  border-width: 1px;
+}
+
+.boxText{
+  font-size: 20px;
+  text-align: center;
+  padding: 0px;
+  margin: 0;
+}
+
+ul{
+  padding: 0;
+}
+
+.gridPosition{
+  grid-column: 3 / 11;
+  grid-row: 2;
 }
 
 .title{

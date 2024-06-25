@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
 import { IoMdMenu } from "react-icons/io";
+import { Link } from 'react-router-dom';
 
 
 const NavigationBar = () => {
@@ -11,7 +12,7 @@ const NavigationBar = () => {
             <Navbar.Toggle>
                 <IoMdMenu className="custom-menu-icon" size={30}></IoMdMenu>
             </Navbar.Toggle>
-            <a class="navbar-brand title" href="#">ACCOUNTABILITY</a>
+            <Link class="navbar-brand title" to={"/"}>ACCOUNTABILITY</Link>
             <FaUserCircle size={30}></FaUserCircle>
         </div>
         <div class="navigation">
