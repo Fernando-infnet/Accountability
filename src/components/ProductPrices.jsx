@@ -52,7 +52,7 @@ const ProductPrices = ({ productId }) => {
 
   return (
     <div>
-      <h3>Prices for Product Named: {productId.name}</h3>
+      <h3>Preços de: {productId.name}</h3>
       <ul>
         {prices.map(price => (
           <li key={price.id}>
