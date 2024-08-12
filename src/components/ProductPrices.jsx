@@ -43,11 +43,11 @@ const ProductPrices = ({ productId }) => {
   }, [productId]);
 
   if (loading) {
-    return <p>Loading prices...</p>;
+    return <p>Carregando preços...</p>;
   }
 
   if (prices.length === 0) {
-    return <p>No prices available for this product.</p>;
+    return <p>Ainda não há preços para esse produto</p>;
   }
 
   return (
@@ -56,7 +56,7 @@ const ProductPrices = ({ productId }) => {
       <ul>
         {prices.map(price => (
           <li key={price.id}>
-             Name: {supplierNames[price.supplierId] || 'Loading...'} , Price: ${price.price}
+             Name: {supplierNames[price.supplierId] || 'Carregando...'} , Preço: ${price.price}
           </li>
         ))}
       </ul>

@@ -19,7 +19,7 @@ const SupplierList = () => {
         <div key={supplier.id}>
           <div class="card mt-3 mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Name: {supplier.name}</h5>
+                    <h5 class="card-title">Nome: {supplier.name}</h5>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><strong>Endereço:</strong> {supplier.address}</li>

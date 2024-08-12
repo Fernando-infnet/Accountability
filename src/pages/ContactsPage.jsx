@@ -3,20 +3,15 @@ import NavigationBar from '../components/navbar';
 import ContactForm from '../components/ContactForm';
 import ContactList from '../components/ContactList';
 
-import { Link } from 'react-router-dom';
-
-const Contacts = () => {
+const ContactsView = () => {
   return (
     <div>
       <NavigationBar />
       <div className="container mt-5 px-0">
-        <ContactForm></ContactForm>
-        <div className='mt-2'>
-          <Link to="/ContactsView"><h3><strong>Lista de Contatos</strong></h3></Link>
-        </div>
+        <ContactList></ContactList>
       </div>
     </div>
   );
 };
 
-export default Contacts;
+export default ContactsView;

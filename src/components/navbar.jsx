@@ -12,13 +12,11 @@ const NavigationBar = () => {
             <Navbar.Toggle>
                 <IoMdMenu className="custom-menu-icon" size={30}></IoMdMenu>
             </Navbar.Toggle>
-            <Link class="navbar-brand title" to={"/"}>ACCOUNTABILITY</Link>
+            <Link class="navbar-brand title" to={"/"}>Inventário ACME</Link>
             <FaUserCircle size={30}></FaUserCircle>
         </div>
         <div class="navigation">
-            <a>For you</a>
-            <a>Recommended</a>
-            <a>Popular</a>
+
         </div>
     </nav>
   );

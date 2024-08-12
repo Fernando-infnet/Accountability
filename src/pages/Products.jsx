@@ -9,7 +9,6 @@ const Products = () => {
       <NavigationBar />
       <div className="container mt-5">
         <ProductForm></ProductForm>
-        <ProductList></ProductList>
       </div>
     </div>
   );

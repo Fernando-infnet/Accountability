@@ -9,13 +9,13 @@ const LandingPage = () => {
     <div>
       <NavigationBar />
       <div className="container mt-5">
-        <h1>Accountability Main Page</h1>
-        <p>Follow for CRUD manipulation:</p>
-        <div class="links">
-          <Link to="/Suppliers"><strong>Suppliers</strong></Link>
-          <Link to="/Contacts"><strong>Contacts</strong></Link>
-          <Link to="/Products"><strong>Products</strong></Link>
-          <Link to="/Price"><strong>Price</strong></Link>
+        <h1>Inventário ACME Página Inicial</h1>
+        <p>Siga para o Registro de Produtos e suas dependências:</p>
+        <div class="links" style={{padding: "10px"}}>
+          <Link to="/Products"><strong>Produtos</strong></Link>
+          <Link to="/Suppliers"><strong>Fornecedores</strong></Link>
+          <Link to="/Contacts"><strong>Contato</strong></Link>
+          <Link to="/Price"><strong>Cotações</strong></Link>
         </div>
       </div>
     </div>

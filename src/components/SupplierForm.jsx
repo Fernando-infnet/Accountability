@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { addSupplier } from '../services/supplierService';
-import { db } from '../firebase'; 
-import { collection, addDoc } from 'firebase/firestore';
 
 const SupplierForm = () => {
   const [name, setName] = useState('');
@@ -18,24 +16,24 @@ const SupplierForm = () => {
   return (
     <div class="gridForm"> 
         <div class="ColoredBox">
-            <h2 className='boxText'>Register Supplier</h2>
+            <h2 className='boxText'>Registre Fornecedor</h2>
         </div>
         <form onSubmit={handleSubmit}  class="gridPosition">
         <input 
         class="inputStyle"
             type="text" 
-            placeholder="Supplier Name" 
+            placeholder="Nome" 
             value={name} 
             onChange={(e) => setName(e.target.value)} 
         />
         <input 
         class="inputStyle"
             type="text" 
-            placeholder="Supplier Address" 
+            placeholder="Endereço" 
             value={address} 
             onChange={(e) => setAddress(e.target.value)} 
         />
-        <button class="ColoredBox" type="submit">Add Supplier</button>
+        <button class="ColoredBox" type="submit">Prosseguir</button>
         </form>
     </div>
 

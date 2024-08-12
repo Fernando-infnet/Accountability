@@ -36,11 +36,9 @@ const PriceForm = () => {
       productId,
     };
 
-    console.log(productData + " spy"); 
-
     const productInfo = await addProducts(productData);
 
-    console.log(`Contact added with ID: ${productInfo}`);
+    console.log(`Cntact added with ID: ${productInfo}`);
 
     setPrice('');
     setSupplierId('');
@@ -52,24 +50,24 @@ const PriceForm = () => {
   return (
     <div class="gridForm">
       <div class="ColoredBox">
-        <h2 className='boxText'>Register Contact</h2>
+        <h2 className='boxText'>Adicione Cotação</h2>
       </div>
       <form onSubmit={handleSubmit} class="gridPosition">
-        <input placeholder='Price:' class="inputStyle" type="number" value={price} onChange={(e) => setPrice(e.target.value)} required />
+        <input placeholder='Preço:' class="inputStyle" type="number" value={price} onChange={(e) => setPrice(e.target.value)} required />
         <select className='inputStyle' value={supplierId} onChange={(e) => setSupplierId(e.target.value)} required>
-          <option value="">Select Supplier</option>
+          <option value="">Selecione o Fornecedor</option>
           {suppliers.map(supplier => (
             <option key={supplier.id} value={supplier.id}>{supplier.name}</option>
           ))}
         </select>
         <select className='inputStyle' value={productId} onChange={(e) => setProductId(e.target.value)} required>
-          <option value="">Select Supplier</option>
+          <option value="">Selecione o Produto</option>
           {products.map(product => (
             <option key={product.id} value={product.id}>{product.name}</option>
           ))}
         </select>
         <br />
-        <button class="ColoredBox" type="submit">Add Contact</button>
+        <button class="ColoredBox" type="submit">Prosseguir</button>
       </form>
     </div>
   );

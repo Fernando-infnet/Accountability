@@ -49,9 +49,9 @@ const ContactList = () => {
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><strong>Email:</strong> {contact.email}</li>
-                    <li class="list-group-item"><strong>Phone Number:</strong> {contact.phone_number}</li>
-                    <li class="list-group-item"><strong>Supplier:</strong> 
-                    {supplierNames[contact.supplierId] || 'Loading...'}</li>
+                    <li class="list-group-item"><strong>Número:</strong> {contact.phone_number}</li>
+                    <li class="list-group-item"><strong>Fornecedor:</strong> 
+                    {supplierNames[contact.supplierId] || 'Carregando...'}</li>
                 </ul>
             </div>
           </li>

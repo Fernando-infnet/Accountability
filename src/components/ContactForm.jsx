@@ -47,17 +47,17 @@ const ContactForm = () => {
         <h2 className='boxText'>Register Contact</h2>
       </div>
       <form onSubmit={handleSubmit} class="gridPosition">
-        <input placeholder='Name:' class="inputStyle" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+        <input placeholder='Nome:' class="inputStyle" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
         <input placeholder='Email:' class="inputStyle" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <input placeholder='Phone Number:' class="inputStyle" type="number" value={number} onChange={(e) => setNumber(e.target.value)} required />
+        <input placeholder='Número:' class="inputStyle" type="number" value={number} onChange={(e) => setNumber(e.target.value)} required />
         <select className='inputStyle' value={supplierId} onChange={(e) => setSupplierId(e.target.value)} required>
-          <option value="">Select Supplier</option>
+          <option value="">Selecione Fornecedor</option>
           {suppliers.map(supplier => (
             <option key={supplier.id} value={supplier.id}>{supplier.name}</option>
           ))}
         </select>
         <br />
-        <button class="ColoredBox" type="submit">Add Contact</button>
+        <button class="ColoredBox" type="submit">Prosseguir</button>
       </form>
     </div>
   );
