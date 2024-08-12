@@ -29,7 +29,7 @@ const ContactList = () => {
           names[contact.supplierId] = supplier.name;
         } catch (error) {
           console.error(`Error fetching supplier with ID ${contact.supplierId}:`, error);
-          names[contact.supplierId] = 'Supplier not found';
+          names[contact.supplierId] = 'Não encontrado';
         }
       }
       setSupplierNames(names);

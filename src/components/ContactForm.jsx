@@ -44,7 +44,7 @@ const ContactForm = () => {
   return (
     <div class="gridForm">
       <div class="ColoredBox">
-        <h2 className='boxText'>Register Contact</h2>
+        <h2 className='boxText'>Registre Contatos</h2>
       </div>
       <form onSubmit={handleSubmit} class="gridPosition">
         <input placeholder='Nome:' class="inputStyle" type="text" value={name} onChange={(e) => setName(e.target.value)} required />

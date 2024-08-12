@@ -1,7 +1,6 @@
 import React from 'react';
 import NavigationBar from '../components/navbar';
 import ContactForm from '../components/ContactForm';
-import ContactList from '../components/ContactList';
 
 import { Link } from 'react-router-dom';
 

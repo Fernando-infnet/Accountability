@@ -48,9 +48,6 @@ const ProductList = () => {
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><strong>Descrição:</strong> {product.description}</li>
                 </ul>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Fornecedor:</strong> {suppliers[product.supplierId] || "Desconhecido"}</li>
-                </ul>
                 <div class="ColoredBox" onClick={() => handleProductClick(product)}>
                   Compare Preços
                 </div>

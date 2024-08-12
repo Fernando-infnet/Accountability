@@ -56,7 +56,7 @@ const ProductPrices = ({ productId }) => {
       <ul>
         {prices.map(price => (
           <li key={price.id}>
-             Name: {supplierNames[price.supplierId] || 'Carregando...'} , Preço: ${price.price}
+             Fornecedor: {supplierNames[price.supplierId] || 'Carregando...'} , Preço: ${price.price}
           </li>
         ))}
       </ul>
