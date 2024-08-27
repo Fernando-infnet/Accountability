@@ -1,5 +1,5 @@
 import { db } from '../firebase';
-import { collection, addDoc, getDocs, getDoc, doc } from 'firebase/firestore';
+import { collection, addDoc, getDocs, getDoc, doc, deleteDoc } from 'firebase/firestore';
 
 export const addSupplier = async (supplierData) => {
   try {
@@ -51,3 +51,14 @@ const getSupplierById = async (supplierId) => {
 };
 
 export { getSupplierById };
+
+export const deleteSupplierById = async (supplierId) => {
+  try {
+      const docRef = doc(db, 'suppliers', supplierId);
+      await deleteDoc(docRef);
+      console.log(`Request ID ${supplierId} deleted sucessfully`);
+  } catch (error) {
+      console.error('Error deleting request:', error)
+      throw error;
+  }
+}

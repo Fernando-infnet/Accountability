@@ -37,8 +37,6 @@ const ContactForm = () => {
     setName('');
     setEmail('');
     setSupplierId('');
-    
-    window.location.reload();
   };
 
   return (

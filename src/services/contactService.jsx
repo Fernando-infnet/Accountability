@@ -1,6 +1,6 @@
 // src/services/contactService.js
 import { db } from '../firebase';
-import { collection, getDocs, addDoc, query, where } from 'firebase/firestore';
+import { collection, getDocs, addDoc, query, where, doc , deleteDoc} from 'firebase/firestore';
 
 
 export const addContactToSupplier = async (contactData) => {
@@ -81,3 +81,14 @@ export const getContactsForSupplier = async (supplierId) => {
   };
   
   export { getAllContactsWithSupplier };
+
+  export const deleteContactById = async (contactId) => {
+    try {
+        const docRef = doc(db, 'contacts', contactId);
+        await deleteDoc(docRef);
+        console.log(`Contacts ID ${contactId} deleted sucessfully`);
+    } catch (error) {
+        console.error('Error deleting contact:', error)
+        throw error;
+    }
+  }

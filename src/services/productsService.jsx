@@ -1,5 +1,5 @@
 import { db } from '../firebase';
-import { collection, addDoc, getDocs, getDoc, doc } from 'firebase/firestore';
+import { collection, addDoc, getDocs, getDoc, doc, deleteDoc } from 'firebase/firestore';
 
 export const addProducts = async (productData) => {
   try {
@@ -9,7 +9,7 @@ export const addProducts = async (productData) => {
     console.log('Document written with ID: ', docRef.id);
     return docRef.id;
   } catch (error) {
-    console.error("Error adding supplier: ", error);
+    console.error("Error adding product: ", error);
   }
 };
 
@@ -18,23 +18,23 @@ export const getProducts = async () => {
       const collectionRef = collection(db, 'products');
       const querySnapshot = await getDocs(collectionRef);
       
-      const suppliers = [];
+      const products = [];
       querySnapshot.forEach((doc) => {
-        suppliers.push({
+        products.push({
           id: doc.id,
           ...doc.data()
         });
       });
   
-      return suppliers;
+      return products;
     } catch (error) {
-      console.error('Error fetching suppliers: ', error);
+      console.error('Error fetching products: ', error);
       throw error;
     }
   };
 
 
-const getProductsById = async (productId) => {
+export const getProductsById = async (productId) => {
   try {
     const docRef = doc(db, 'products', productId);
     const docSnap = await getDoc(docRef);
@@ -50,4 +50,14 @@ const getProductsById = async (productId) => {
   }
 };
 
-export { getProductsById };
+export const deleteProductById = async (productId) => {
+  try {
+      const docRef = doc(db, 'products', productId);
+      await deleteDoc(docRef);
+      console.log(`Request ID ${productId} deleted sucessfully`);
+  } catch (error) {
+      console.error('Error deleting request:', error)
+      throw error;
+  }
+}
+

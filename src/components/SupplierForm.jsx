@@ -10,7 +10,6 @@ const SupplierForm = () => {
     await addSupplier({ name, address });
     setName('');
     setAddress('');
-    window.location.reload();
   };
 
   return (

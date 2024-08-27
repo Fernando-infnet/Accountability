@@ -13,12 +13,13 @@
   }
 }
 
+
 .custom-navbar-toggler .navbar-toggler-icon {
-  color: #f00; /* Altere a cor do ícone do botão de toggle aqui */
+  color: #f00; 
 }
 
 body {
-  font-family: 'Lexend', sans-serif; /* Apply Lexend font to the entire application */
+  font-family: 'Lexend', sans-serif; 
 }
 
 ul, li {
@@ -59,8 +60,40 @@ ul, li {
   font-weight: 600;
 }
 
+.card {
+  width: 100%;
+}
+
+@media (max-width: 575.98px) {
+  .card {
+    width: 100%; 
+  }
+}
+
+@media (min-width: 1200px) {
+  .card {
+    width: 60%; 
+  }
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px;
+}
+
+.cardHome {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border: 1px solid #E47862;
+  border-radius: 36px;
+  min-width: 30%;
+}
+
 .links{
   display: flex;
+  flex-direction: column;
   gap: 10px;
   justify-content: space-around;
 }

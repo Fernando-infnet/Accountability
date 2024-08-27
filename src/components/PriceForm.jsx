@@ -43,8 +43,6 @@ const PriceForm = () => {
     setPrice('');
     setSupplierId('');
     setProductId('');
-    
-    window.location.reload();
   };
 
   return (

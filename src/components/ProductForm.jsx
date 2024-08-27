@@ -27,7 +27,6 @@ const ProductForm = () => {
     setName('');
     setDescription('');
     setSupplierId('');
-    window.location.reload();
   };
 
   return (
