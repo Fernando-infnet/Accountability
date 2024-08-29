@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { getPricesByProduct } from '../services/priceService';
 import { getSupplierById } from '../services/supplierService';
 
 const ProductPrices = ({ productId }) => {
@@ -25,22 +24,6 @@ const ProductPrices = ({ productId }) => {
     fetchSupplierNames();
   }, [prices]);
 
-  useEffect(() => {
-    const fetchPrices = async () => {
-      try {
-        const fetchedPrices = await getPricesByProduct(productId.id);
-        setPrices(fetchedPrices);
-      } catch (error) {
-        console.error('Error fetching prices:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (productId.id) {
-      fetchPrices();
-    }
-  }, [productId]);
 
   if (loading) {
     return <p>Carregando preços...</p>;

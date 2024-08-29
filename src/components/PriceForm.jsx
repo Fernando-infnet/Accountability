@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { addProducts } from '../services/priceService';
 import { getSuppliers } from '../services/supplierService';
 import { getProducts } from '../services/productsService';
+import { getRequests } from '../services/requestService';
 
 const PriceForm = () => {
   const [price, setPrice] = useState('');
@@ -10,6 +11,8 @@ const PriceForm = () => {
   const [productId, setProductId] = useState([]);
   const [products, setProducts] = useState([]);
 
+  const [requestId, setRequestId] = useState([]);
+  const [requests, setRequests] = useState([]);
 
   useEffect(() => {
     const fetchSuppliers = async () => {
@@ -25,25 +28,34 @@ const PriceForm = () => {
       };
 
     fetchProducts();
+
+    const fetchRequests = async () => {
+      const requestList = await getRequests()
+      setRequests(requestList)
+    };
+
+    fetchRequests();
   }, []);
 
   const handleSubmit = async (e) => {
+    console.log(requestId)
     e.preventDefault();
 
     const productData = {
       price,
       supplierId,
-      productId,
+      requestId,
     };
 
     const productInfo = await addProducts(productData);
 
-    console.log(`Cntact added with ID: ${productInfo}`);
+    console.log(`Contact added with ID: ${productInfo}`);
 
     setPrice('');
     setSupplierId('');
     setProductId('');
-  };
+    setRequestId('');
+    };
 
   return (
     <div class="gridForm">
@@ -58,11 +70,17 @@ const PriceForm = () => {
             <option key={supplier.id} value={supplier.id}>{supplier.name}</option>
           ))}
         </select>
-        <select className='inputStyle' value={productId} onChange={(e) => setProductId(e.target.value)} required>
-          <option value="">Selecione o Produto</option>
-          {products.map(product => (
-            <option key={product.id} value={product.id}>{product.name}</option>
-          ))}
+        <select className='inputStyle' value={requestId} onChange={(e) => setRequestId(e.target.value)} required>
+          <option value="">Selecione a Requisição de Compra</option>
+          {requests.map(request => {
+            const product = products.find((t) => t.id === request.productId);
+            
+            return (
+              <option key={request.id} value={request.id}>
+                {product ? product.name : 'Produto não encontrado'}
+              </option>
+            );
+          })}
         </select>
         <br />
         <button class="ColoredBox" type="submit">Prosseguir</button>

@@ -1,11 +1,21 @@
 import { db } from '../firebase';
-import { collection, addDoc, getDocs, query, where, doc, deleteDoc} from 'firebase/firestore';
+import { collection, addDoc, getDocs, query, where, doc, deleteDoc, serverTimestamp} from 'firebase/firestore';
 
-export const addRequests = async (productData) => {
+export const addRequests = async (ProductData) => {
   try {
-    console.log("Dados Chegando" + productData)
+    console.log("Dados Chegando" + ProductData)
+
+    const { description, productId, userUid, userMail } = ProductData; 
+
     const collectionRef = collection(db, 'requests');
-    const docRef = await addDoc(collectionRef, productData);
+
+    const docRef = await addDoc(collectionRef, {
+        description : description,
+        productId: productId,
+        userUid: userUid,
+        userMail: userMail,
+        data: serverTimestamp(),
+    });
     console.log('Document written with ID: ', docRef.id);
     return docRef.id;
   } catch (error) {
@@ -16,6 +26,7 @@ export const addRequests = async (productData) => {
 export const getRequests = async () => {
     try {
       const collectionRef = collection(db, 'requests');
+      
       const querySnapshot = await getDocs(collectionRef);
       
       const requests = [];

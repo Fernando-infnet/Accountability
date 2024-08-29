@@ -1,32 +1,31 @@
 import { db } from '../firebase';
-import { getFirestore, collection, query, addDoc , where, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, query, addDoc , where, getDocs, serverTimestamp, orderBy } from 'firebase/firestore';
 
 
 export const addProducts = async (ProductData) => {
     try {
-      const { price, supplierId, productId } = ProductData;
+      const { price, supplierId, requestId } = ProductData;
   
-      // Reference to the 'contacts' collection
       const productsCollection = collection(db, 'prices');
   
-      // Add a new document to the 'contacts' collection
       const docRef = await addDoc(productsCollection, {
         price: price,
         supplierId: supplierId,
-        productId: productId
+        requestId: requestId,
+        data: serverTimestamp(),
       });
   
       return docRef.id;
     } catch (error) {
-      console.error('Error adding contact:', error);
+      console.error('Error adding price:', error);
       throw error; 
     }
   };
 
-  export const getPricesByProduct = async (productId) => {
+  export const getPricesByRequest = async (requestId) => {
     try {
       const pricesRef = collection(db, 'prices');
-      const q = query(pricesRef, where('productId', '==', productId));
+      const q = query(pricesRef, where('requestId', '==', requestId));
       const querySnapshot = await getDocs(q);
       const prices = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       return prices;
@@ -35,3 +34,5 @@ export const addProducts = async (ProductData) => {
       throw error;
     }
   };
+
+  

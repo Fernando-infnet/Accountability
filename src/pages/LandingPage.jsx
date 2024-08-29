@@ -1,7 +1,9 @@
 import React from 'react';
 import NavigationBar from '../components/navbar';
 import { Link } from 'react-router-dom';
-
+import { auth } from "../firebase"
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 import Suppliers from './Suppliers';
 
 import useAuth from '../hooks/useAuth';
@@ -10,6 +12,13 @@ import useAuth from '../hooks/useAuth';
 const LandingPage = () => {
 
   const { user , isAdmin } = useAuth();
+
+  const navigate = useNavigate();
+
+  const handleSignOff = () => {
+    signOut(auth)
+    navigate("/");
+  }
   
   return (
     <div style={{height: '100vh'}}>
@@ -18,13 +27,15 @@ const LandingPage = () => {
         <h1>Página Inicial</h1>
         <h5>Siga para o catálogo e operação de Produtos ACME:</h5>
         <div class="cards">
-          <div class="cardHome">
+          {(user && !isAdmin) && (
+            <div class="cardHome">
             <h2>Colaboradores</h2>
-            <div class="links" style={{padding: "10px"}}>
-              <Link to="/Request"><strong>Requisições de Compra</strong></Link>
-              <Link to="/RequestsPage"><strong>Suas Requisições</strong></Link>
+              <div class="links" style={{padding: "10px"}}>
+                <Link to="/Request"><strong>Requisições de Compra</strong></Link>
+                <Link to="/RequestsPage"><strong>Suas Requisições</strong></Link>
+              </div>
             </div>
-          </div>
+          )}
           {(user && isAdmin) && (
             <div class="cardHome">
               <h2>Funções Admin</h2>
@@ -47,6 +58,12 @@ const LandingPage = () => {
           )}
         </div>
       </div>
+      <button
+        className="btn btn-danger m-3 p-3"
+        onClick={handleSignOff}
+        >
+            Sair da conta
+      </button>
     </div>
   );
 };

@@ -37,6 +37,7 @@ const ContactForm = () => {
     setName('');
     setEmail('');
     setSupplierId('');
+    setNumber('');
   };
 
   return (
